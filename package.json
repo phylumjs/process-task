@@ -3,13 +3,13 @@
 	"version": "1.0.0",
 	"description": "Run server side code for development",
 	"main": "lib",
-	"repository": "github:phylumjs/server-process-task",
-	"author": "Max J. Polster",
-	"license": "MIT",
 	"devDependencies": {
 		"@phylum/pipeline": "^1.2.1",
 		"ava": "^1.0.1",
 		"coveralls": "^3.0.2",
 		"nyc": "^13.1.0"
-	}
+	},
+	"repository": "github:phylumjs/server-process-task",
+	"author": "Max J. Polster",
+	"license": "MIT"
 }
