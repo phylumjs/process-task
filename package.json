@@ -1,7 +1,7 @@
 {
-	"name": "@phylum/server-process-task",
+	"name": "@phylum/process-task",
 	"version": "1.0.0",
-	"description": "Pipeline task for running server side code",
+	"description": "Pipeline task for running child processes",
 	"main": "lib",
 	"devDependencies": {
 		"@phylum/pipeline": "^1.2.1",
@@ -12,7 +12,7 @@
 	"peerDependencies": {
 		"@phylum/pipeline": "^1.0.0"
 	},
-	"repository": "github:phylumjs/server-process-task",
+	"repository": "github:phylumjs/process-task",
 	"author": "Max J. Polster",
 	"license": "MIT"
 }
