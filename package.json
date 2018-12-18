@@ -3,6 +3,10 @@
 	"version": "1.0.0",
 	"description": "Pipeline task for running child processes",
 	"main": "lib",
+	"scripts": {
+		"test": "nyc -- ava --verbose",
+		"dev": "ava --watch --verbose"
+	},
 	"devDependencies": {
 		"@phylum/pipeline": "^1.2.1",
 		"ava": "^1.0.1",
@@ -11,6 +15,12 @@
 	},
 	"peerDependencies": {
 		"@phylum/pipeline": "^1.0.0"
+	},
+	"nyc": {
+		"reporter": [
+			"text",
+			"text-summary"
+		]
 	},
 	"repository": "github:phylumjs/process-task",
 	"author": "Max J. Polster",
