@@ -4,7 +4,7 @@ const test = require('ava')
 const path = require('path')
 const cp = require('child_process')
 const Pipeline = require('@phylum/pipeline')
-const ProcessTaskState = require('../lib/state')
+const {ProcessTaskState} = require('..')
 
 function spawn() {
 	return cp.fork(path.join(__dirname, '_process.js'), {
