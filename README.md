@@ -3,7 +3,7 @@
 ![Version](https://img.shields.io/npm/v/@phylum/process-task.svg)
 ![License](https://img.shields.io/npm/l/@phylum/process-task.svg)
 
-# Process task
+# Process pipeline task
 Pipeline task for running child processes
 
 ## Installation
@@ -46,3 +46,13 @@ Kill the current process if alive.<br/>
 state.kill()
 ```
 Note that `state.process` will be set to `null` after calling this function.
+
+### Event: 'spawn'
+The spawn event is emitted when a new process has been spawned using `state.spawn(..)` or `state.respawn(..)`. The child process is passed with the first argument. This can be useful for listening to process related events like ipc messages.
+```js
+state.on('spawn', process => {
+	process.on('message', msg => {
+		console.log('An ipc message:', msg)
+	})
+})
+```
