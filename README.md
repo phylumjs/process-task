@@ -21,6 +21,9 @@ const state = new ProcessTaskState(ctx, spawn)
 + ctx `<Pipeline.Context>` - The pipeline context to attach to.
 + spawn `<function>` - A function to spawn a child process. The context is passed with the first argument and the function must return the new child process.
 
+### state.ctx
+Get the `<Pipeline.Context>` the state was bound to.
+
 ### state.process
 Get the current `<ChildProcess>`.
 If the process has been killed using `state.kill(..)` or the process emitted an exit event, this property will be set to `null`

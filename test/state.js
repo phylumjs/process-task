@@ -34,6 +34,8 @@ test('basic usage', async t => {
 	let proc
 	const pipeline = new Pipeline(async ctx => {
 		const state = new ProcessTaskState(ctx, spawn)
+		t.is(state.ctx, ctx)
+
 		let spawned = null
 		state.on('spawn', proc => {
 			spawned = proc
