@@ -35,7 +35,7 @@ test('basic usage', async t => {
 	const pipeline = new Pipeline(async ctx => {
 		const state = new ProcessTaskState(ctx, spawn)
 		t.is(state.process, null)
-		state.spawn()
+		t.is(state.spawn(), state.process)
 		proc = state.process
 		await processReady(proc)
 	})
@@ -48,8 +48,9 @@ test('basic usage', async t => {
 test('respawn', async t => {
 	const pipeline = new Pipeline(async ctx => {
 		const state = new ProcessTaskState(ctx, spawn)
-		state.respawn()
+		const respawnedProc = state.respawn()
 		const proc = state.process
+		t.is(respawnedProc, proc)
 		await processReady(proc)
 		state.respawn()
 		t.true(proc !== state.process)
@@ -64,7 +65,7 @@ test('spawn while alive', async t => {
 		const state = new ProcessTaskState(ctx, spawn)
 		state.spawn()
 		const proc = state.process
-		state.spawn()
+		t.is(state.spawn(), false)
 		t.is(proc, state.process)
 	})
 	await pipeline.enable()
