@@ -5,7 +5,8 @@
 	"main": "lib",
 	"scripts": {
 		"test": "nyc -- ava --verbose",
-		"dev": "ava --watch --verbose"
+		"dev": "ava --watch --verbose",
+		"report-coverage": "nyc report --reporter=text-lcov | coveralls"
 	},
 	"devDependencies": {
 		"@phylum/pipeline": "^1.2.1",
