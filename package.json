@@ -1,6 +1,6 @@
 {
 	"name": "@phylum/process-task",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "Pipeline task for running child processes",
 	"main": "lib",
 	"scripts": {
