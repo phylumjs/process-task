@@ -3,7 +3,7 @@
 const test = require('ava')
 const path = require('path')
 const cp = require('child_process')
-const Pipeline = require('@phylum/pipeline')
+const {Pipeline, Context} = require('@phylum/pipeline')
 const {ProcessTaskState} = require('..')
 
 function spawn() {
@@ -25,9 +25,9 @@ function processReady(proc) {
 }
 
 test('assertions', async t => {
-	new ProcessTaskState(new Pipeline.Context(), () => {})
+	new ProcessTaskState(new Context(), () => {})
 	t.throws(() => new ProcessTaskState('foo', () => {}))
-	t.throws(() => new ProcessTaskState(new Pipeline.Context(), 'bar'))
+	t.throws(() => new ProcessTaskState(new Context(), 'bar'))
 })
 
 test('basic usage', async t => {
