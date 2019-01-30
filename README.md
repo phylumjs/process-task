@@ -4,15 +4,40 @@
 ![Version](https://img.shields.io/npm/v/@phylum/process-task.svg)
 ![License](https://img.shields.io/npm/l/@phylum/process-task.svg)
 
-Utility for running child processes.
+Create tasks that run child processes.
 
 ## Installation
 ```bash
 npm i @phylum/process-task
 ```
 
+<br>
+
+
+
 ## Usage
-The `ProcessTaskState` class manages a single child process that can be spawned and killed manually.<br>
+
+### `createProcessTask(spawn[, options])`
+Create a task that spawns a process and waits for it to exit.
+```js
+const cp = require('child_process')
+const {createProcessTask} = require('@phylum/process-task')
+
+const task = createProcessTask(ctx => cp.exec('echo Hello World!'))
+```
++ spawn `<function>` - A function to spawn the process.
+	+ ctx `<Context>` - The task context is passed with the first argument.
+	+ return `<ChildProcess>` - A child process (or any object that exposes the same api)
++ options `<object>` - Optional. An object with the following options:
+	+ expect `<number> | <string>` - The exit code or signal to expect. If the process exits with another code or signal, the task will reject. Default is `0`
+	+ killOnDispose `<boolean>` - True to kill the process when the task is disposed and the process is still running. If your process will run forever, you should set this to `true`. Default is `false`.
+
+<br>
+
+
+
+## `ProcessTaskState`
+The ProcessTaskState class manages a single child process that can be spawned and killed manually.<br>
 It is killed automatically when the task is disposed.
 ```js
 const {ProcessTaskState} = require('@phylum/process-task')
